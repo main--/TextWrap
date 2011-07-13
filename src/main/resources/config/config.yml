@@ -1,0 +1,7 @@
+Core:
+  plugin:
+    language: en
+    debugmode: false
+    usagestats: true
+  message:
+    indent: true
