@@ -33,7 +33,7 @@ public class TextWrapPlayerListener extends PlayerListener {
         event.setFormat(event.getFormat().replace("%1$s", PlayerName));
         String Spaces = "";
         int x = event.getFormat().indexOf(Message) + countColors(event.getFormat().replace(" " + Message, ""));
-        this.plugin.getServer().getLogger().info("LOCATION: "+ x +"- LENGTH:" + event.getFormat().length());
+        this.plugin.getServer().getLogger().info("LOCATION: " + x + "- LENGTH:" + event.getFormat().length());
         int tempcounter = event.getFormat().length() - 2;
         for (int i = 0; i < tempcounter; i++) {
             Spaces += " ";
@@ -42,19 +42,19 @@ public class TextWrapPlayerListener extends PlayerListener {
         event.setFormat(event.getFormat().replace("%2$s", Message));
         this.plugin.getServer().getLogger().info("FORMAT: " + event.getFormat());
         if (event.getFormat().length() > counter) {
-            this.plugin.getServer().getLogger().info(event.getFormat().length() + event.getMessage().length() + ">" + counter);
+            this.plugin.getServer().getLogger().info(event.getFormat().length() + event.getMessage().length() + " > " + counter);
             ArrayList<String> Messages = new ArrayList<String>();
             String[] Words = Message.split(" ");
             String TempMessage = "";
             int TempMessageLength = x;
             for (String Word : Words) {
-                TempMessageLength = (TempMessage.length()+x + Word.length()) + 1;
+                TempMessageLength = (TempMessage.length() + x + Word.length()) + 1;
                 if (TempMessageLength > counter) {
                     TempMessageLength = x;
                     Messages.add(TempMessage);
                     TempMessage = "";
                 }
-                this.plugin.getServer().getLogger().info(TempMessage + "-" + (TempMessage.length()+x) + "-" + Word.length() + "-" + TempMessageLength + ":" + counter);
+                this.plugin.getServer().getLogger().info(TempMessage + "-" + (TempMessage.length() + x) + "-" + Word.length() + "-" + TempMessageLength + ":" + counter);
                 TempMessage += Word + " ";
             }
             Messages.add(TempMessage);
@@ -70,8 +70,8 @@ public class TextWrapPlayerListener extends PlayerListener {
                         TempPrefix = "";
                     }
                 }
-                for(Player p : event.getRecipients()) {
-                    p.sendMessage(TempPrefix+Messages.get(thecounter));
+                for (Player p : event.getRecipients()) {
+                    p.sendMessage(TempPrefix + Messages.get(thecounter));
                 }
                 ColouredConsoleSender console = new ColouredConsoleSender((CraftServer)Bukkit.getServer());
                 console.sendMessage(TempPrefix + Messages.get(thecounter));

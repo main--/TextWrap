@@ -99,9 +99,13 @@ public class Util {
     }
 
     public void Log(String type, String what) {
-        if (type.equals("severe")) Config.log.severe("[" + Config.pluginname + "] " + what);
-        else if(type.equals("info")) Config.log.info("[" + Config.pluginname + "] " + what);
-        else if(type.equals("warning")) Config.log.warning("[" + Config.pluginname + "] " + what);
+        if (type.equals("severe"))
+            Config.log.severe("[" + Config.pluginname + "] " + what);
+        } else if (type.equals("info")) {
+            Config.log.info("[" + Config.pluginname + "] " + what);
+        } else if (type.equals("warning"))
+            Config.log.warning("[" + Config.pluginname + "] " + what);
+        }
     }
 
     public void Debug(String message) {
@@ -116,11 +120,9 @@ public class Util {
             MessageDigest md5er = MessageDigest.getInstance("MD5");
             byte[] hash = md5er.digest(bytes);
             return bytes2hex(hash);
-        }
-        catch (GeneralSecurityException e) {
+        } catch (GeneralSecurityException e) {
             throw new RuntimeException(e);
-        }
-        catch (UnsupportedEncodingException e) {
+        } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
     }

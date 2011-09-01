@@ -32,9 +32,9 @@ public class TextWrap extends JavaPlugin {
     }
 
     public void onEnable() {
-        new Config("config", "plugins/" + Config.pluginname + "/", "config.yml");
+        new Config("config", "plugins/" + Config.pluginname + "/config/", "config.yml");
         if (null == getConfiguration().getKeys("plugin")) {
-            Util.Log("info", "config.yml could not be found in plugins/" + Config.pluginname + "/ -- disabling!");
+            Util.Log("info", "config.yml could not be found in plugins/" + Config.pluginname + "/config/ -- disabling!");
             getServer().getPluginManager().disablePlugin(((Plugin) (this)));
             return;
         }

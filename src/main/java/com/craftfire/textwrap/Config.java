@@ -41,7 +41,7 @@ public class Config {
     public Config(String config, String directory, String filename) {
         template = new Configuration(new File(directory, filename));
         template.load();
-        if(config.equals("config")) {
+        if (config.equals("config")) {
             ///////////////////////////////////////////
             //               plugin
             ///////////////////////////////////////////
