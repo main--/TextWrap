@@ -99,11 +99,11 @@ public class Util {
     }
 
     public void Log(String type, String what) {
-        if (type.equals("severe"))
+        if (type.equals("severe")) {
             Config.log.severe("[" + Config.pluginname + "] " + what);
         } else if (type.equals("info")) {
             Config.log.info("[" + Config.pluginname + "] " + what);
-        } else if (type.equals("warning"))
+        } else if (type.equals("warning")) {
             Config.log.warning("[" + Config.pluginname + "] " + what);
         }
     }
