@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 
 import org.bukkit.Bukkit;
+import org.bukkit.craftbukkit.CraftServer;
+import org.bukkit.craftbukkit.command.ColouredConsoleSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.event.player.PlayerListener;
@@ -66,7 +68,8 @@ public class TextWrapPlayerListener extends PlayerListener
                 {
                     p.sendMessage(TempPrefix+Messages.get(thecounter));
                 }
-                Bukkit.getServer().getLogger().log(Level.INFO, TempPrefix+Messages.get(thecounter));
+                ColouredConsoleSender console = new ColouredConsoleSender((CraftServer)Bukkit.getServer());
+                console.sendMessage(TempPrefix+Messages.get(thecounter));
                 thecounter++;
             }
             event.setCancelled(true);
