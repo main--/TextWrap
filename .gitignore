@@ -45,4 +45,8 @@ Thumbs.db
 .classpath
 .project
 .settings
+<<<<<<< HEAD
 MANIFEST.MF
+=======
+target
+>>>>>>> Support other chat plugins better - Send the message to the console too

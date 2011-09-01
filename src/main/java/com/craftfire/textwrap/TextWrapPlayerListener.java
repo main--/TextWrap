@@ -1,7 +1,9 @@
 package com.craftfire.textwrap;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.event.player.PlayerListener;
@@ -60,19 +62,15 @@ public class TextWrapPlayerListener extends PlayerListener
                     if(Config.message_indent) { TempPrefix = Spaces; } 
                     else { TempPrefix = ""; } 
                 }
-                this.plugin.getServer().broadcastMessage(TempPrefix+Messages.get(thecounter));
+                for(Player p:event.getRecipients())
+                {
+                    p.sendMessage(TempPrefix+Messages.get(thecounter));
+                }
+                Bukkit.getServer().getLogger().log(Level.INFO, TempPrefix+Messages.get(thecounter));
                 thecounter++;
             }
-        } else {
-            for(Player p : this.plugin.getServer().getOnlinePlayers())
-            {
-                //p.sendMessage(arg0)
-            }
-            event.setFormat(event.getFormat().replace("%1$s", PlayerName));
-            event.setFormat(event.getFormat().replace("%2$s", Message));
-            this.plugin.getServer().broadcastMessage(event.getFormat());
+            event.setCancelled(true);
         }
-        event.setCancelled(true);
     }
 
     public int countColors(String string)
