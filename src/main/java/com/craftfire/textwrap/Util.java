@@ -70,10 +70,11 @@ public class Util {
             int halfbyte = data[i] >>> 4 & 0xF;
         int two_halfs = 0;
         do {
-            if ((halfbyte >= 0) && (halfbyte <= 9))
+            if ((halfbyte >= 0) && (halfbyte <= 9)) {
                 buf.append((char)(48 + halfbyte));
-            else
+            } else {
                 buf.append((char)(97 + (halfbyte - 10)));
+            }
             halfbyte = data[i] & 0xF;
         }
         while (two_halfs++ < 1);
@@ -85,8 +86,9 @@ public class Util {
         StringBuffer r = new StringBuffer(32);
         for (int i = 0; i < bytes.length; i++) {
             String x = Integer.toHexString(bytes[i] & 0xFF);
-            if (x.length() < 2)
+            if (x.length() < 2) {
                 r.append("0");
+            }
             r.append(x);
         }
         return r.toString();
@@ -97,14 +99,14 @@ public class Util {
     }
 
     public void Log(String type, String what) {
-        if(type.equals("severe")) Config.log.severe("["+Config.pluginname+"] "+what);
-        else if(type.equals("info")) Config.log.info("["+Config.pluginname+"] "+what);
-        else if(type.equals("warning")) Config.log.warning("["+Config.pluginname+"] "+what);
+        if (type.equals("severe")) Config.log.severe("[" + Config.pluginname + "] " + what);
+        else if(type.equals("info")) Config.log.info("[" + Config.pluginname + "] " + what);
+        else if(type.equals("warning")) Config.log.warning("[" + Config.pluginname + "] " + what);
     }
 
     public void Debug(String message) {
-        if(Config.plugin_debugmode) {
-            Log("info",message);
+        if (Config.plugin_debugmode) {
+            Log("info", message);
         }
     }
 

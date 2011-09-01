@@ -28,39 +28,41 @@ public class TextWrap extends JavaPlugin {
     }
 
     public void onDisable() {
-        getServer().getLogger().info(Config.pluginname+" plugin "+Config.pluginversion+" has been disabled");
+        getServer().getLogger().info(Config.pluginname + " plugin " + Config.pluginversion + " has been disabled");
     }
 
     public void onEnable() {
-        new Config("config","plugins/"+Config.pluginname+"/", "config.yml");
+        new Config("config", "plugins/" + Config.pluginname + "/", "config.yml");
         if (null == getConfiguration().getKeys("plugin")) {
-            Util.Log("info", "config.yml could not be found in plugins/"+Config.pluginname+"/ -- disabling!");
+            Util.Log("info", "config.yml could not be found in plugins/" + Config.pluginname + "/ -- disabling!");
             getServer().getPluginManager().disablePlugin(((Plugin) (this)));
             return;
         }
 
-        if(Config.plugin_usagestats) {
+        if (Config.plugin_usagestats) {
             Server TheServer = getServer();
             Plugin[] plugins = TheServer.getPluginManager().getPlugins();
             int counter = 0;
             String Plugins = "";
             while (plugins.length > counter) {
                 Plugins = Plugins + plugins[counter].getDescription().getName() + "&_&" + plugins[counter].getDescription().getVersion();
-                if (plugins.length != counter + 1)
+                if (plugins.length != counter + 1) {
                     Plugins = Plugins + "*_*";
+                }
                 counter++;
             }
 
             int online = getServer().getOnlinePlayers().length;
             int max = getServer().getMaxPlayers();
             try {
-                this.Util.PostInfo(getServer().getName(), getServer().getVersion(), "1.1.0", System.getProperty("os.name"), System.getProperty("os.version"), System.getProperty("os.arch"), System.getProperty("java.version"), "", "", Plugins, ""+online, ""+max, TheServer.getPort()); } catch (IOException e1) {
-                    getServer().getLogger().info("Could not send data to main server.");
-                }
+                this.Util.PostInfo(getServer().getName(), getServer().getVersion(), "1.1.0", System.getProperty("os.name"), System.getProperty("os.version"), System.getProperty("os.arch"), System.getProperty("java.version"), "", "", Plugins, "" + online, "" + max, TheServer.getPort());
+            } catch (IOException e1) {
+                getServer().getLogger().info("Could not send data to main server.");
+            }
         }
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvent(Event.Type.PLAYER_CHAT, this.playerListener, Event.Priority.Highest, this);
-        getServer().getLogger().info(Config.pluginname+" plugin "+Config.pluginversion+" is enabled");
-        getServer().getLogger().info(Config.pluginname+" is developed by CraftFire <dev@craftfire.com>");
+        getServer().getLogger().info(Config.pluginname + " plugin " + Config.pluginversion + " is enabled");
+        getServer().getLogger().info(Config.pluginname + " is developed by CraftFire <dev@craftfire.com>");
     }
 }
