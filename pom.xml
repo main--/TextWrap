@@ -13,8 +13,8 @@
     <artifactId>textwrap</artifactId>
     <version>dev-SNAPSHOT</version>
     <name>TextWrap</name>
-    <url>http://craftfire.com</url>
-    <description></description>
+    <url>http://www.craftfire.com</url>
+    <description>Automatic word wrapping chat plugin for Bukkit-based Minecraft servers.</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -48,6 +48,12 @@
         <repository>
             <id>craftfire-repo</id>
             <url>http://repo.craftfire.com</url>
+            <releases>
+                <updatePolicy>daily</updatePolicy>
+            </releases>
+            <snapshots>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
         </repository>
     </repositories>
 
@@ -65,12 +71,6 @@
             <artifactId>bukkit</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-        <!-- CraftBukkit -->
-        <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>craftbukkit</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -80,34 +80,27 @@
             <resource>
                 <targetPath>.</targetPath>
                 <filtering>true</filtering>
-                <directory>${basedir}/src/main/resources/</directory>
+                <directory>${basedir}/src/main/resources</directory>
                 <includes>
                     <include>LICENSE.txt</include>
                     <include>plugin.yml</include>
                 </includes>
             </resource>
             <resource>
-                <targetPath>files/config/</targetPath>
+                <targetPath>files/config</targetPath>
                 <filtering>true</filtering>
-                <directory>${basedir}/src/main/resources/config/</directory>
+                <directory>${basedir}/src/main/resources/config</directory>
                 <includes>
-                    <include>config.yml</include>
+                    <include>*</include>
                 </includes>
             </resource>
             <resource>
-                <targetPath>files/translations/messages/</targetPath>
+                <targetPath>files/translations</targetPath>
                 <filtering>true</filtering>
-                <directory>${basedir}/src/main/resources/translations/messages/</directory>
+                <directory>${basedir}/src/main/resources/translations</directory>
                 <includes>
-                    <include>*.yml</include>
-                </includes>
-            </resource>
-            <resource>
-                <targetPath>files/translations/commands/</targetPath>
-                <filtering>true</filtering>
-                <directory>${basedir}/src/main/resources/translations/commands/</directory>
-                <includes>
-                    <include>*.yml</include>
+                    <include>*</include>
+                    <include>**/*</include>
                 </includes>
             </resource>
         </resources>
@@ -123,7 +116,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>2.3.1</version>
+                <version>2.3.2</version>
             </plugin>
         </plugins>
     </build>
