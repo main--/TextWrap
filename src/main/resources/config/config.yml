@@ -1,7 +1,10 @@
-Core:
-  plugin:
-    language: en
-    debugmode: false
-    usagestats: true
-  message:
-    indent: true
+plugin:
+#  language:
+#    commands: English                              # NOT IMPLEMENTED YET! Language you want to use for commands that matches a directory under translations.
+#    messages: English                              # NOT IMPLEMENTED YET! Language you want to use for messages that matches a directory under translations.
+  debugmode: false                                 # Enable/disable debugging mode and additional console output.
+  usagestats: true                                 # Enable/disable usage stats reporting to CraftFire devs.
+#  logging: true                                    # NOT IMPLEMENTED YET! Enable/disable logging to files.
+#  logformat: yyyy-MM-dd                            # NOT IMPLEMENTED YET! Filename format of the AuthDB debug and error log files.
+#message:
+#  indent: true                                     # NOT IMPLEMENTED YET! Enable/disable indenting of text on next lines.

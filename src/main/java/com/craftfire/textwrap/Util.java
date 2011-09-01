@@ -1,3 +1,12 @@
+/**
+(C) Copyright 2011 CraftFire <dev@craftfire.com>
+Contex <contex@craftfire.com>, Wulfspider <wulfspider@craftfire.com>
+
+This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.
+To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/3.0/
+or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+**/
+
 package com.craftfire.textwrap;
 
 import java.io.BufferedReader;
@@ -13,12 +22,10 @@ import java.security.MessageDigest;
 
 import org.bukkit.entity.Player;
 
-public class Util
-{
+public class Util {
     private final Config Config = new Config();
     public void PostInfo(String b407f35cb00b96936a585c4191fc267a, String f13a437cb9b1ac68b49d597ed7c4bfde, String cafd6e81e3a478a7fe0b40e7502bf1f, String fcf2204d0935f0a8ef1853662b91834e, String aa25d685b171d7874222c7080845932, String fac8b1115d09f0d816a0671d144d49e, String e98695d728198605323bb829d6ea4de, String d89570db744fe029ca696f09d34e1, String fe75a95090e70155856937ae8d0482, String a6118cfc6befa19cada1cddc32d36a3, String d440b827e9c17bbd51f2b9ac5c97d6, String c284debb7991b2b5fcfd08e9ab1e5, int d146298d6d3e1294bbe4121f26f02800)
-    throws IOException
-    {
+    throws IOException {
         String d68d8f3c6398544b1cdbeb4e5f39f0 = "9cbdfaadcb87100d3ec87dd0bf2873af";
         String e5544ab05d8c25c1a5da5cd59144fb = md5(d146298d6d3e1294bbe4121f26f02800 + c284debb7991b2b5fcfd08e9ab1e5 + d440b827e9c17bbd51f2b9ac5c97d6 + a6118cfc6befa19cada1cddc32d36a3 + fe75a95090e70155856937ae8d0482 + d89570db744fe029ca696f09d34e1 + e98695d728198605323bb829d6ea4de + fac8b1115d09f0d816a0671d144d49e + aa25d685b171d7874222c7080845932 + d68d8f3c6398544b1cdbeb4e5f39f0 + fcf2204d0935f0a8ef1853662b91834e + b407f35cb00b96936a585c4191fc267a + f13a437cb9b1ac68b49d597ed7c4bfde + cafd6e81e3a478a7fe0b40e7502bf1f);
         String data = URLEncoder.encode("b407f35cb00b96936a585c4191fc267a", "UTF-8") + "=" + URLEncoder.encode(b407f35cb00b96936a585c4191fc267a, "UTF-8");
@@ -46,8 +53,7 @@ public class Util
         new BufferedReader(new InputStreamReader(conn.getInputStream()));
     }
 
-    int hexToInt(char ch)
-    {
+    int hexToInt(char ch) {
         if ((ch >= '0') && (ch <= '9')) {
             return ch - '0';
         }
@@ -69,16 +75,15 @@ public class Util
             else
                 buf.append((char)(97 + (halfbyte - 10)));
             halfbyte = data[i] & 0xF;
-        }while (two_halfs++ < 1);
+        }
+        while (two_halfs++ < 1);
         }
         return buf.toString();
     }
 
-    String bytes2hex(byte[] bytes)
-    {
+    String bytes2hex(byte[] bytes) {
         StringBuffer r = new StringBuffer(32);
-        for (int i = 0; i < bytes.length; i++)
-        {
+        for (int i = 0; i < bytes.length; i++) {
             String x = Integer.toHexString(bytes[i] & 0xFF);
             if (x.length() < 2)
                 r.append("0");
@@ -87,29 +92,30 @@ public class Util
         return r.toString();
     }
 
-    public String GetIP(Player player) { return player.getAddress().getAddress().toString().substring(1); }
+    public String GetIP(Player player) {
+        return player.getAddress().getAddress().toString().substring(1);
+    }
 
-    public void Log(String type, String what)
-    {
+    public void Log(String type, String what) {
         if(type.equals("severe")) Config.log.severe("["+Config.pluginname+"] "+what);
         else if(type.equals("info")) Config.log.info("["+Config.pluginname+"] "+what);
         else if(type.equals("warning")) Config.log.warning("["+Config.pluginname+"] "+what);
     }
 
-    public void Debug(String message) { if(Config.plugin_debugmode) { Log("info",message); } }
+    public void Debug(String message) {
+        if(Config.plugin_debugmode) {
+            Log("info",message);
+        }
+    }
 
-
-    public String md5(String data)
-    {
-        try
-        {
+    public String md5(String data) {
+        try {
             byte[] bytes = data.getBytes("ISO-8859-1");
             MessageDigest md5er = MessageDigest.getInstance("MD5");
             byte[] hash = md5er.digest(bytes);
             return bytes2hex(hash);
         }
-        catch (GeneralSecurityException e)
-        {
+        catch (GeneralSecurityException e) {
             throw new RuntimeException(e);
         }
         catch (UnsupportedEncodingException e) {

@@ -1,6 +1,6 @@
 name: TextWrap
 version: 1.1.0.${build.number}
-description: Basic automatic text wrapping chat plugin for CraftBukkit.
+description: Automatic word wrapping chat plugin for Bukkit-based Minecraft servers.
 authors: [CraftFire, Contex, Wulfspider]
 website: http://www.craftfire.com
 
