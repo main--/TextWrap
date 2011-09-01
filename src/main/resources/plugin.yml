@@ -1,9 +1,7 @@
 name: TextWrap
-main: com.craftfire.textwrap.TextWrap
-version: dev-SNAPSHOT
-website: http://www.craftfire.com
+version: 1.1.0.${build.number}
 description: Basic automatic text wrapping chat plugin for CraftBukkit.
-authors:
-  - CraftFire
-  - Contex
-  - Wulfspider
+authors: [CraftFire, Contex, Wulfspider]
+website: http://www.craftfire.com
+
+main: com.craftfire.textwrap.TextWrap
