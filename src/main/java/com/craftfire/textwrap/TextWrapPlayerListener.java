@@ -70,11 +70,12 @@ public class TextWrapPlayerListener extends PlayerListener {
                         TempPrefix = "";
                     }
                 }
-                for (Player p : event.getRecipients()) {
-                    p.sendMessage(TempPrefix + Messages.get(thecounter));
-                }
-                ColouredConsoleSender console = new ColouredConsoleSender((CraftServer)Bukkit.getServer());
-                console.sendMessage(TempPrefix + Messages.get(thecounter));
+//              for (Player p : event.getRecipients()) {
+//                  p.sendMessage(TempPrefix + Messages.get(thecounter));
+//              }
+//              ColouredConsoleSender console = new ColouredConsoleSender((CraftServer)Bukkit.getServer());
+//              console.sendMessage(TempPrefix + Messages.get(thecounter));
+                event.getPlayer().chat(Messages.get(thecounter));
                 thecounter++;
             }
             event.setCancelled(true);
